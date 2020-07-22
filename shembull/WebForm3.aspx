@@ -8,55 +8,55 @@
 
 
 <!-- Begin of cookie
-var username = GetCookie('username');
-if (username == null) {
-username = prompt('Please enter your name (otherwise press cancel)',"xxxxxxxx");
-if (username == null) {
-alert('Please enter your name');
-username = 'yyyyyy';
-} else {
-pathname = location.pathname;
-myDomain = pathname.substring(0,pathname.lastIndexOf('/')) +'/';
-var largeExpDate = new Date ();
-largeExpDate.setTime(largeExpDate.getTime() + (365 * 24 * 3600 * 1000));
-SetCookie('username',username,largeExpDate,myDomain);
-   }
-}
-function getCookieVal (offset) {
-var endstr = document.cookie.indexOf (";", offset);
-if (endstr == -1)
-endstr = document.cookie.length;
-return unescape(document.cookie.substring(offset, endstr));
-}
-function GetCookie (name) {
-var arg = name + "=";
-var alen = arg.length;
-var clen = document.cookie.length;
-var i = 0;
-while (i < clen) {
-var j = i + alen;
-if (document.cookie.substring(i, j) == arg)
-return getCookieVal (j);
-i = document.cookie.indexOf(" ", i) + 1;
-if (i == 0)
-break;
-}
-return null;
-}
-function SetCookie (name, value) {
-var argv = SetCookie.arguments;
-var argc = SetCookie.arguments.length;
-var expires = (argc > 2) ? argv[2] : null;
-var path = (argc > 3) ? argv[3] : null;
-var domain = (argc > 4) ? argv[4] : null;
-var secure = (argc > 5) ? argv[5] : false;
-document.cookie = name + "=" + escape (value) +
-((expires == null) ? "" : ("; expires=" +
-expires.toGMTString())) +
-((path == null) ? "" : ("; path=" + path)) +
-((domain == null) ? "" : ("; domain=" + domain)) +
-((secure == true) ? "; secure" : "");
-}
+//var username = GetCookie('username');
+//if (username == null) {
+//username = prompt('Please enter your name (otherwise press cancel)',"xxxxxxxx");
+//if (username == null) {
+//alert('Please enter your name');
+//username = 'yyyyyy';
+//} else {
+//pathname = location.pathname;
+//myDomain = pathname.substring(0,pathname.lastIndexOf('/')) +'/';
+//var largeExpDate = new Date ();
+//largeExpDate.setTime(largeExpDate.getTime() + (365 * 24 * 3600 * 1000));
+//SetCookie('username',username,largeExpDate,myDomain);
+//   }
+//}
+//function getCookieVal (offset) {
+//var endstr = document.cookie.indexOf (";", offset);
+//if (endstr == -1)
+//endstr = document.cookie.length;
+//return unescape(document.cookie.substring(offset, endstr));
+//}
+//function GetCookie (name) {
+//var arg = name + "=";
+//var alen = arg.length;
+//var clen = document.cookie.length;
+//var i = 0;
+//while (i < clen) {
+//var j = i + alen;
+//if (document.cookie.substring(i, j) == arg)
+//return getCookieVal (j);
+//i = document.cookie.indexOf(" ", i) + 1;
+//if (i == 0)
+//break;
+//}
+//return null;
+//}
+//function SetCookie (name, value) {
+//var argv = SetCookie.arguments;
+//var argc = SetCookie.arguments.length;
+//var expires = (argc > 2) ? argv[2] : null;
+//var path = (argc > 3) ? argv[3] : null;
+//var domain = (argc > 4) ? argv[4] : null;
+//var secure = (argc > 5) ? argv[5] : false;
+//document.cookie = name + "=" + escape (value) +
+//((expires == null) ? "" : ("; expires=" +
+//expires.toGMTString())) +
+//((path == null) ? "" : ("; path=" + path)) +
+//((domain == null) ? "" : ("; domain=" + domain)) +
+//((secure == true) ? "; secure" : "");
+//}
 // End head cookie code-->
 </SCRIPT>
     
@@ -92,19 +92,9 @@ expires.toGMTString())) +
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
-    <!--cookie body code -->
-    <CENTER>
-<SCRIPT>
-<!-- Begin
-    document.write('<font size="+3">Hey ' + username + '!</font>');
-    if (username == "username") {
-        document.write('</font><br><small><a href="http://cookies.javascriptsource.com/n-browser.html" target="_top">personalize</A> your greeting!</small>')
 
-            < !--Remember to change the URL in the previous line to your page URL-- >
-}
-// End of cookie-->
-</SCRIPT>
+    <!--cookie body code -->
+
     <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 
 	<!-- LOADER -->
@@ -136,6 +126,8 @@ expires.toGMTString())) +
 						<li><a class="nav-link" href="#events">Events</a></li>
                         <li><a class="nav-link" href="#parties">Parties</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
+						<li><asp:HyperLink runat="server" ID="Hyperlink10001" NavigateUrl="~/regjistrim.aspx" CssClass="nav-link" >Register</asp:HyperLink></li>
+						<li><asp:HyperLink runat="server" ID="hyperlink234" NavigateUrl="~/administrator.aspx" CssClass="nav-link">Admin</asp:HyperLink></li>
                     </ul>
                 </div>
             </div>
@@ -559,14 +551,7 @@ expires.toGMTString())) +
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<%--<select class="custom-select d-block form-control" id="guest" required data-error="Please select an item in the list.">
-								  <option disabled selected>Number Of Guest*</option>
-								  <option value="1">1</option>
-								  <option value="2">2</option>
-								  <option value="3">3</option>
-								  <option value="4">4</option>
-								  <option value="5">5</option>
-								</select>--%>
+								
                                 <asp:DropDownList ID="guest" runat="server" CssClass="custom-select d-block form-control">
                                     <asp:ListItem Value="">Zgjidhni numrin e te ftuarve</asp:ListItem>
                                     <asp:ListItem Value="1">1</asp:ListItem>
@@ -583,17 +568,18 @@ expires.toGMTString())) +
 							</div> 
 						</div>
 						<div class="col-md-6">
-							<div class="form-group">
-                                 <asp:DropDownList ID="event" runat="server" CssClass="custom-select d-block form-control">
+							<div 
+								class="form-group">
+                                 <asp:DropDownList ID="eventi" runat="server" CssClass="custom-select d-block form-control">
                                     <asp:ListItem Value="">Interesohem per* </asp:ListItem>
-                                    <asp:ListItem Value="1">Wedding ceremony</asp:ListItem>
-                                    <asp:ListItem Value="2">Engagment ceremony</asp:ListItem>
-                                    <asp:ListItem Value="3">Birthday Party</asp:ListItem>
-                                    <asp:ListItem Value="4">Bachelor Party</asp:ListItem>
-                                    <asp:ListItem Value="5">Business event</asp:ListItem>
+                                    <asp:ListItem Value="wedding ceremony">Wedding ceremony</asp:ListItem>
+                                    <asp:ListItem Value="engagment ceremony">Engagment ceremony</asp:ListItem>
+                                    <asp:ListItem Value="birthday party">Birthday Party</asp:ListItem>
+                                    <asp:ListItem Value="bachelor party">Bachelor Party</asp:ListItem>
+                                    <asp:ListItem Value="business event">Business event</asp:ListItem>
                                     
                           </asp:DropDownList>
-                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"  ErrorMessage="Please choose the event you're interested " ControlToValidate="event"></asp:RequiredFieldValidator>
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"  ErrorMessage="Please choose the event you're interested " ControlToValidate="eventi"></asp:RequiredFieldValidator>
 
 								<%--<select class="custom-select d-block form-control" id="event" required data-error="Please select an item in the list.">
 								  <option disabled selected>I Am Attending*</option>
@@ -614,8 +600,8 @@ expires.toGMTString())) +
 							</div>
 							<div class="submit-button text-center">
                                 
-                           <asp:Button ID="submit" runat="server" Text="SEND MESSAGE" CssClass="btn btn-common" OnClientClick="submit_Click" PostBackUrl="~/WebForm3.aspx"> </asp:Button>
-                                  <asp:ValidationSummary ID="ValidationSummary2" runat="server" ForeColor="Red" DisplayMode="BulletList" ShowMessageBox="true"/> </asp:ValidationSummary>
+                           <asp:Button ID="button1" runat="server" Text="SEND MESSAGE" CssClass="btn btn-common" OnClick="button1_Click" UseSubmitBehavior="false"/>
+                                  <%--<asp:ValidationSummary ID="ValidationSummary2" runat="server" ForeColor="Red" DisplayMode="BulletList" ShowMessageBox="true"/> </asp:ValidationSummary>--%>
 								<%--<button class="btn btn-common" id="submit" type="submit">Send Message</button>--%> 
 								<div id="msgSubmit" class="h3 text-center hidden"></div> 
 								<div class="clearfix"></div> 
@@ -636,9 +622,10 @@ expires.toGMTString())) +
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="footer-company-name">All Rights Reserved. &copy; 2020 <a href="#">Sweet Events</a> 
+					<p class="footer-company-name">All Rights Reserved. &copy; 2020 <a href="#">Sweet Events</a> </p>
 			</div>
 		</div>
+			</div>
 	</footer>
 	<!-- End Footer -->
 
